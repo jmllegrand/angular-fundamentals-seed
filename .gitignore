@@ -4,6 +4,9 @@
 # Node
 node_modules
 
+# webpack
+vendor
+
 # macOS
 .DS_Store
 .AppleDouble
