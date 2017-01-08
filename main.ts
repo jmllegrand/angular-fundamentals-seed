@@ -13,7 +13,7 @@ console.log(uppercase(myName));
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-function ShoppingList() {
+/*function ShoppingList() {
   this.groceries = [];
 }
 
@@ -40,6 +40,7 @@ console.log("when adding stuff", myList.groceries);
 myList.removeItem("pear");
 console.log("when removing an item", myList.groceries);
 
+*/
 
 /*
  class ShoppingListTS {
