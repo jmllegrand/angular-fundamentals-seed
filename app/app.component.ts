@@ -17,7 +17,13 @@ import {Component} from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-     {{title}}
+     {{title + '!' }}
+     <div>
+        {{numberOne + numberTwo}}
+     </div>
+     <div>
+        {{isHappy ? ':)' : ':(' }}
+     </div>
     </div>
   `
 })
@@ -29,6 +35,9 @@ export class AppComponent {
 
   // declare the property
   title: string;
+  numberOne: number = 1;
+  numberTwo: number = 2;
+  isHappy: boolean = true;
 
   // we set value of the property 'title' in the constructor
   constructor() {
