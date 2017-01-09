@@ -18,18 +18,27 @@ import {Component} from '@angular/core';
   template: `
     <div class="app">
      {{title + '!' }}
+      <h1>{{title}}</h1>
+      <h1 [innerHTML]="title"></h1>
+
      <div>
         {{numberOne + numberTwo}}
      </div>
      <div>
         {{isHappy ? ':)' : ':(' }}
      </div>
-    </div>
+     <img [src]="logo"> is equivalent to <img src="{{logo}}">
+     <div>
+        <input type="text" [value]="name"> </div> <br/>      
+        {{name}} is not being updated 
+     </div>
   `
 })
 
 // use inline template
 // interpolation : all properties expose in the class are available in the template
+
+// property binding
 
 export class AppComponent {
 
@@ -38,6 +47,8 @@ export class AppComponent {
   numberOne: number = 1;
   numberTwo: number = 2;
   isHappy: boolean = true;
+  logo: string = 'img/apple.png';
+  name: string = 'JM';
 
   // we set value of the property 'title' in the constructor
   constructor() {
