@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Passenger} from "./Passenger";
 
 // Component is a decorator
 
@@ -83,11 +84,22 @@ import {Component} from '@angular/core';
   <button (click)="handleClick()">Reset</button>
 </div>
 
-<!-- demonstrate ngFor-->
+<!-- demonstrate *ngFor-->
 <h3>Airline passengers</h3>
-{{passengers.length}}
-<br/>
-{{passengers  | json}}
+<ul>
+  <li *ngFor="let passenger of passengers">
+    <span>{{passenger.id}}: </span> <span>{{passenger.fullName}} has checked in </span> <span>{{passenger.checkedIn}}</span>
+  </li>
+</ul>
+
+<h3>Airline passengers</h3>
+<ul>
+<template ngFor let-passenger [ngForOf]="passengers">
+  <li>
+    <span>{{passenger.id}}: </span> <span>{{passenger.fullName}} has checked in </span> <span>{{passenger.checkedIn}}</span>
+  </li>
+</template >
+</ul>
   `
 })
 
@@ -114,7 +126,7 @@ export class AppComponent {
   firstName: string = 'JM';
   description: string = 'description';
   wineName: string = '';
-  passengers: any = [{
+  passengers: Passenger[] = [{
     id: 1,
     fullName: 'Stephen',
     checkedIn: true
