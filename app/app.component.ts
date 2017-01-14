@@ -69,7 +69,7 @@ import {Component} from '@angular/core';
 </div>
 <br/>
 
-<!-- demonstrate ngIf-->
+<!-- demonstrate *ngIf-->
 <div>
   <input
     type="text"
@@ -82,6 +82,12 @@ import {Component} from '@angular/core';
   <span *ngIf="wineName.length > 2"> Searching for ...  {{wineName}}</span>
   <button (click)="handleClick()">Reset</button>
 </div>
+
+<!-- demonstrate ngFor-->
+<h3>Airline passengers</h3>
+{{passengers.length}}
+<br/>
+{{passengers  | json}}
   `
 })
 
@@ -108,6 +114,19 @@ export class AppComponent {
   firstName: string = 'JM';
   description: string = 'description';
   wineName: string = '';
+  passengers: any = [{
+    id: 1,
+    fullName: 'Stephen',
+    checkedIn: true
+  }, {
+    id: 2,
+    fullName: 'Nathalie',
+    checkedIn: false
+  }, {
+    id: 3,
+    fullName: 'Appolline',
+    checkedIn: true
+  }];
 
   // we set value of the property 'title' in the constructor
   constructor() {
