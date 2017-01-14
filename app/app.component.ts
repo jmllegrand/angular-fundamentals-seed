@@ -28,6 +28,7 @@ import {Component} from '@angular/core';
   </div>
   <img [src]="logo"> is equivalent to <img src="{{logo}}">
   <br/>
+  
   <!-- demonstrate one way databinding -->
   <div>
     <input
@@ -36,6 +37,7 @@ import {Component} from '@angular/core';
       (input)="inputFn($event)"
       (blur)="blurFn($event)">
     <span> value: {{name}} is now being updated </span>
+    <button (click)="handleClick()">Reset</button>
   </div>
   <br/>
 
@@ -56,10 +58,16 @@ import {Component} from '@angular/core';
       [(ngModel)]="description">
     <span>value: {{description}}</span>
   </div>
-  <br/>
-  <button (click)="handleClick()">Reset</button>
-
 </div>
+
+<!-- demonstrate #ref variables-->
+<br/>
+<div>
+  <input type="text" #city>
+  <span> value: {{name}} is now being updated </span>
+  <button (click)="handleClickCity(city.value)">Get Value</button>
+</div>
+
   `
 })
 
@@ -111,5 +119,10 @@ export class AppComponent {
   handleChange(value: string) {
     console.log("event fired", value);
     this.firstName = value;
+  }
+
+  handleClickCity(value: string) {
+    console.log("the value passed by is ", value);
+
   }
 }
