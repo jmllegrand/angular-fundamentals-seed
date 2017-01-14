@@ -28,17 +28,37 @@ import {Component} from '@angular/core';
   </div>
   <img [src]="logo"> is equivalent to <img src="{{logo}}">
   <br/>
+  <!-- demonstrate one way databinding -->
   <div>
     <input
       type="text"
       [value]="name"
       (input)="inputFn($event)"
       (blur)="blurFn($event)">
+    <span> value: {{name}} is now being updated </span>
+  </div>
+  <br/>
+
+  <!-- demonstrate 2 ways databinding -->
+  <div>
+    <input
+      type="text"
+      [ngModel]="firstName"
+      (ngModelChange)="handleChange($event)">
+    <span>  value: {{firstName}}  </span>
+  </div>
+  <br/>
+
+  <!-- demonstrate 2 ways databinding : compact version-->
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="description">
+    <span>value: {{description}}</span>
   </div>
   <br/>
   <button (click)="handleClick()">Reset</button>
-  <br/>
-  {{name}} is now being updated
+
 </div>
   `
 })
@@ -61,7 +81,10 @@ export class AppComponent {
   numberTwo: number = 2;
   isHappy: boolean = true;
   logo: string = 'img/apple.png';
-  name: string = 'JM';
+  name: string = 'LEGRAND';
+
+  firstName: string = 'JM';
+  description: string = 'description';
 
   // we set value of the property 'title' in the constructor
   constructor() {
@@ -83,5 +106,10 @@ export class AppComponent {
   handleClick() {
     console.log("click event fired");
     this.name = '';
+  }
+
+  handleChange(value: string) {
+    console.log("event fired", value);
+    this.firstName = value;
   }
 }
