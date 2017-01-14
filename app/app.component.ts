@@ -85,20 +85,38 @@ import {Passenger} from "./Passenger";
 </div>
 
 <!-- demonstrate *ngFor-->
-<h3>Airline passengers</h3>
+<h3>Airline passengers using [class.checked-in]</h3>
 <ul>
   <li *ngFor="let passenger of passengers">
-    <span>{{passenger.id}}: </span> <span>{{passenger.fullName}} has checked in </span> <span>{{passenger.checkedIn}}</span>
+   <span
+     class="status"
+     [class.checked-in]="passenger.checkedIn">
+   </span>
+   <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+  </li>
+</ul>
+
+<h3>Airline passengers (using ngClass property binding)</h3>
+<ul>
+  <li *ngFor="let passenger of passengers">
+   <span
+     class="status"
+     [ngClass]="{
+        'checked-in': passenger.checkedIn,
+        'checked-out': !passenger.checkedIn
+     }"></span>
+   <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
   </li>
 </ul>
 
 <h3>Airline passengers</h3>
 <ul>
-<template ngFor let-passenger [ngForOf]="passengers">
-  <li>
-    <span>{{passenger.id}}: </span> <span>{{passenger.fullName}} has checked in </span> <span>{{passenger.checkedIn}}</span>
-  </li>
-</template >
+  <template ngFor let-passenger [ngForOf]="passengers">
+    <li>
+      <span>{{passenger.id}}: </span> <span>{{passenger.fullName}} has checked in </span>
+      <span>{{passenger.checkedIn}}</span>
+    </li>
+  </template>
 </ul>
   `
 })
