@@ -92,7 +92,7 @@ import {Passenger} from "./Passenger";
      class="status"
      [class.checked-in]="passenger.checkedIn">
    </span>
-   <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+    <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
   </li>
 </ul>
 
@@ -105,7 +105,30 @@ import {Passenger} from "./Passenger";
         'checked-in': passenger.checkedIn,
         'checked-out': !passenger.checkedIn
      }"></span>
-   <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+    <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+  </li>
+</ul>
+
+<h3>Airline passengers (using style property binding)</h3>
+<ul>
+  <li *ngFor="let passenger of passengers">
+   <span
+     class="status"
+     [style.backgroundColor]="passenger.checkedIn ? '#2ecc71'  : '#c0392b'"></span>
+    <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+  </li>
+</ul>
+
+
+<h3>Airline passengers (using ngStyle )</h3>
+<ul>
+  <li *ngFor="let passenger of passengers">
+   <span
+     class="status"
+     [ngStyle]=" {
+        backgroundColor: passenger.checkedIn ? '#2ecc71'  : '#c0392b'
+     }"></span>
+    <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
   </li>
 </ul>
 
