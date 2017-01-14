@@ -28,7 +28,7 @@ import {Component} from '@angular/core';
   </div>
   <img [src]="logo"> is equivalent to <img src="{{logo}}">
   <br/>
-  
+
   <!-- demonstrate one way databinding -->
   <div>
     <input
@@ -67,7 +67,21 @@ import {Component} from '@angular/core';
   <span> value: {{name}} is now being updated </span>
   <button (click)="handleClickCity(city.value)">Get Value</button>
 </div>
+<br/>
 
+<!-- demonstrate ngIf-->
+<div>
+  <input
+    type="text"
+    [value]="wineName"
+    (input)="handleInputWineName($event.target.value)">
+  <span *ngIf="wineName.length > 2"> Searching for ...  {{wineName}}</span>
+  <template [ngIf]="wineName.length > 2">
+    <span> Searching for ...  {{wineName}}</span>
+  </template>
+  <span *ngIf="wineName.length > 2"> Searching for ...  {{wineName}}</span>
+  <button (click)="handleClick()">Reset</button>
+</div>
   `
 })
 
@@ -93,6 +107,7 @@ export class AppComponent {
 
   firstName: string = 'JM';
   description: string = 'description';
+  wineName: string = '';
 
   // we set value of the property 'title' in the constructor
   constructor() {
@@ -123,6 +138,10 @@ export class AppComponent {
 
   handleClickCity(value: string) {
     console.log("the value passed by is ", value);
-
   }
+
+  handleInputWineName(value: string) {
+    this.wineName = value;
+  }
+
 }
