@@ -38,7 +38,9 @@ import {Component} from '@angular/core';
 // use inline template
 // interpolation : all properties expose in the class are available in the template
 
-// property binding
+// property binding: how we can pass data from a component class into a template by binding it to an element
+// we use the [square_bracket_notation] 
+// property binding ties with 'one way' data flow
 
 export class AppComponent {
 
