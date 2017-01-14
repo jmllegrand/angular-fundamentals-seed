@@ -15,23 +15,31 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   styleUrls: ['app.component.scss'],
-  template: `
-    <div class="app">
-     {{title + '!' }}
-      <h1>{{title}}</h1>
-      <h1 [innerHTML]="title"></h1>
+  template: `<div class="app">
+  {{title + '!' }}
+  <h1>{{title}}</h1>
+  <h1 [innerHTML]="title"></h1>
 
-     <div>
-        {{numberOne + numberTwo}}
-     </div>
-     <div>
-        {{isHappy ? ':)' : ':(' }}
-     </div>
-     <img [src]="logo"> is equivalent to <img src="{{logo}}">
-     <div>
-        <input type="text" [value]="name"> </div> <br/>      
-        {{name}} is not being updated 
-     </div>
+  <div>
+    {{numberOne + numberTwo}}
+  </div>
+  <div>
+    {{isHappy ? ':)' : ':(' }}
+  </div>
+  <img [src]="logo"> is equivalent to <img src="{{logo}}">
+  <br/>
+  <div>
+    <input
+      type="text"
+      [value]="name"
+      (input)="inputFn($event)"
+      (blur)="blurFn($event)">
+  </div>
+  <br/>
+  <button (click)="handleClick()">Reset</button>
+  <br/>
+  {{name}} is now being updated
+</div>
   `
 })
 
@@ -41,6 +49,9 @@ import {Component} from '@angular/core';
 // property binding: how we can pass data from a component class into a template by binding it to an element
 // we use the [square_bracket_notation] 
 // property binding ties with 'one way' data flow
+
+// event binding
+// to listen to blur event, we use the (name_of_the_event) notation
 
 export class AppComponent {
 
@@ -55,5 +66,22 @@ export class AppComponent {
   // we set value of the property 'title' in the constructor
   constructor() {
     this.title = "Ultimate angular";
+  }
+
+  blurFn(event: any) {
+    console.log("event fired", event);
+    this.name = event.target.value;
+  }
+
+  // as the user types, the interpolated value will get updated
+  // impression of a 2 way databindings
+  inputFn(event: any) {
+    console.log("event fired", event);
+    this.name = event.target.value;
+  }
+
+  handleClick() {
+    console.log("click event fired");
+    this.name = '';
   }
 }
