@@ -1,12 +1,4 @@
-/**
- * Created by jmlegrand on 14/01/17.
- */
-
-
-interface Child {
-  name: string,
-  age: number
-}
+import {Child} from "./child.interface";
 
 export interface Passenger {
   id: number,

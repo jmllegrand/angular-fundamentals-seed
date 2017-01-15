@@ -6,11 +6,20 @@
 // all of the logic should lived into a dedicated module
 
 import {NgModule} from '@angular/core';
+import {PassengerDashboardComponent} from "./container/passenger-dashboard.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   // all the components relative to the module
-  declarations: [],
-  imports: [],
+  declarations: [
+    PassengerDashboardComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    PassengerDashboardComponent
+  ]
 
 })
 
