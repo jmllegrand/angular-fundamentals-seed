@@ -11,29 +11,13 @@ import {passengers} from './passengers.data';
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
 <div>
-<passenger-count
-  [items]="passengers">
-</passenger-count>
-<passenger-detail></passenger-detail>
-<ul>
-  <li *ngFor="let passenger of passengers">
-       <span
-         class="status"
-         [ngClass]="{
-            'checked-in': passenger.checkedIn,
-            'checked-out': !passenger.checkedIn
-         }"></span>
-    <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
-    <p>{{passenger | json}}</p>
-    <div class="date">
-      Check in date:
-      {{passenger.checkedIn ? (passenger.checkInDate | date: 'fullDate' | uppercase) : 'not checked in'}}
-    </div>
-    <div class="children">
-      Children : {{passenger.children?.length || 0}}
-    </div>
-  </li>
-</ul>
+  <passenger-count
+    [items]="passengers">
+  </passenger-count>
+  <passenger-detail
+    *ngFor="let passenger of passengers"
+    [detail]="passenger">
+  </passenger-detail>
 </div>
 
 `
