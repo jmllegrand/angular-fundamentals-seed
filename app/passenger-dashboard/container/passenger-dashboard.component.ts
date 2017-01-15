@@ -10,6 +10,9 @@ import {passengers} from './passengers.data';
   selector: 'passenger-dashboard',
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
+<div>
+<passenger-count></passenger-count>
+<passenger-detail></passenger-detail>
 <h3>Airline passengers</h3>
 <ul>
   <li *ngFor="let passenger of passengers">
@@ -30,6 +33,8 @@ import {passengers} from './passengers.data';
     </div>
   </li>
 </ul>
+</div>
+
 `
 })
 
