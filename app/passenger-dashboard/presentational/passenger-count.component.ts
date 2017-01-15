@@ -23,11 +23,9 @@ export class PassengerCountComponent {
     console.log("PassengerCountComponent - constructor()")
   }
 
-  checkedInCount() : number {
+  checkedInCount(): number {
     if (!this.items) return;
-    return (this.items.filter(function(passenger: Passenger) {
-      return passenger.checkedIn
-    })).length;
+    return (this.items.filter((passenger: Passenger) => passenger.checkedIn)).length;
   }
 
 }
