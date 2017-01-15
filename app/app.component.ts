@@ -111,6 +111,9 @@ import {Passenger} from "./Passenger";
       Check in date: 
       {{passenger.checkedIn ? (passenger.checkInDate | date: 'fullDate' | uppercase) : 'not checked in'}}
 </div>
+<div class="children">
+Children : {{passenger.children?.length || 0}}
+</div>
   </li>
 </ul>
 
@@ -162,6 +165,8 @@ import {Passenger} from "./Passenger";
 
 // pipe : data transformation mecanism
 
+// safe navigation operator: safety check object property before they are parsed
+// Will be useful for asynchronous requests
 export class AppComponent {
 
   // declare the property
@@ -179,17 +184,20 @@ export class AppComponent {
     id: 1,
     fullName: 'Stephen',
     checkedIn: true,
-    checkInDate: new Date(2016, 11, 17)
+    checkInDate: new Date(2016, 11, 17),
+    children: [{name: 'John', age: 4}, {name: 'Nina', age: 1}]
   }, {
     id: 2,
     fullName: 'Nathalie',
     checkedIn: false,
-    checkInDate: null
+    checkInDate: null,
+    children: null
   }, {
     id: 3,
-    fullName: 'Appolline',
+    fullName: 'Apolline',
     checkedIn: true,
-    checkInDate: new Date(2017, 0, 13)
+    checkInDate: new Date(2017, 0, 13),
+    children: [{name: 'Chloe', age: 14}, {name: 'Nanon', age: 12}]
   }];
 
   // we set value of the property 'title' in the constructor
