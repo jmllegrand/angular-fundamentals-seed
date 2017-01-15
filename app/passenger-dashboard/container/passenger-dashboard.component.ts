@@ -2,12 +2,12 @@
  * Created by jmlegrand on 15/01/17.
  */
 
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Passenger} from "../model/passenger.interface";
 import {passengers} from './passengers.data';
 
 @Component({
-  selector:'passenger-dashboard',
+  selector: 'passenger-dashboard',
   styleUrls: ['passenger-dashboard.component.scss'],
   template: `
 <h3>Airline passengers</h3>
@@ -34,6 +34,22 @@ import {passengers} from './passengers.data';
 })
 
 
-export class PassengerDashboardComponent {
-  passengers: Passenger[] = passengers;
+export class PassengerDashboardComponent implements OnInit {
+
+  passengers: Passenger[];
+
+
+  constructor() {
+    console.log("PassengerDashboardComponent - constructor()")
+  }
+
+  // lifecycle hook, a function calls by angular itself when sth happen
+  // ngOnInit is used when the component is initialized
+  // use case: data fetching (and no relying on the constructor function for this)
+
+  ngOnInit(): void {
+    console.log("PassengerDashboardComponent - ngOnInit()");
+    this.passengers = passengers;
+  }
+
 }

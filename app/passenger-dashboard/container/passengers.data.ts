@@ -1,4 +1,4 @@
-import {Passenger} from "../../Passenger";
+import {Passenger} from "../model/passenger.interface";
 
 export const passengers: Passenger[] = [{
   id: 1,
