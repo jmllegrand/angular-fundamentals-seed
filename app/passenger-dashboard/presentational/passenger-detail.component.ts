@@ -15,5 +15,7 @@ import {Component} from '@angular/core';
 
 
 export class PassengerDetailComponent {
-  constructor() {}
+  constructor() {
+    console.log("PassengerDetailComponent - constructor()")
+  }
 }
