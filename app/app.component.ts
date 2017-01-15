@@ -106,6 +106,11 @@ import {Passenger} from "./Passenger";
         'checked-out': !passenger.checkedIn
      }"></span>
     <span>{{passenger.id}}</span> <span>:</span> <span>{{passenger.fullName}}</span>
+    <p>{{passenger | json}}</p>
+    <div class="date">
+      Check in date: 
+      {{passenger.checkedIn ? (passenger.checkInDate | date: 'fullDate' | uppercase) : 'not checked in'}}
+</div>
   </li>
 </ul>
 
@@ -154,6 +159,9 @@ import {Passenger} from "./Passenger";
 // event binding
 // to listen to blur event, we use the (name_of_the_event) notation
 
+
+// pipe : data transformation mecanism
+
 export class AppComponent {
 
   // declare the property
@@ -170,15 +178,18 @@ export class AppComponent {
   passengers: Passenger[] = [{
     id: 1,
     fullName: 'Stephen',
-    checkedIn: true
+    checkedIn: true,
+    checkInDate: new Date(2016, 11, 17)
   }, {
     id: 2,
     fullName: 'Nathalie',
-    checkedIn: false
+    checkedIn: false,
+    checkInDate: null
   }, {
     id: 3,
     fullName: 'Appolline',
-    checkedIn: true
+    checkedIn: true,
+    checkInDate: new Date(2017, 0, 13)
   }];
 
   // we set value of the property 'title' in the constructor
