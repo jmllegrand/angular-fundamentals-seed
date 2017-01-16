@@ -16,7 +16,9 @@ import {passengers} from './passengers.data';
   </passenger-count>
   <passenger-detail
     *ngFor="let passenger of passengers"
-    [detail]="passenger">
+    [detail]="passenger"
+    (edit)="handleEdit($event)"
+    (remove)="handleRemove($event)">
   </passenger-detail>
 </div>
 
@@ -40,6 +42,14 @@ export class PassengerDashboardComponent implements OnInit {
   ngOnInit(): void {
     console.log("PassengerDashboardComponent - ngOnInit()");
     this.passengers = passengers;
+  }
+
+  handleRemove(event: any) {
+    console.log("remove event fired", event);
+  }
+
+  handleEdit(event:any) {
+    console.log("edit event fired", event);
   }
 
 }
