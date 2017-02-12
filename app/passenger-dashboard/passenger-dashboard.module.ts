@@ -11,6 +11,7 @@ import {CommonModule} from "@angular/common";
 import {PassengerDashboardService} from "./passenger-dashboard.service";
 import {PassengerCountComponent} from "./presentational/passenger-count.component";
 import {PassengerDetailComponent} from "./presentational/passenger-detail.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   // all the components relative to the module
@@ -23,7 +24,8 @@ import {PassengerDetailComponent} from "./presentational/passenger-detail.compon
     PassengerDashboardService
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpModule
   ],
   // only PassengerDashboardComponent is declared (as the component is referenced in the root module)
   // the presentational dumb component are child components of PassengerDashboardComponent
