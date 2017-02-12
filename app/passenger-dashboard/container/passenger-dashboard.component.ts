@@ -9,11 +9,15 @@ import {passengers} from './passengers.data';
 @Component({
   selector: 'passenger-dashboard',
   styleUrls: ['passenger-dashboard.component.scss'],
-  template: `
-<div>
+  template: `<div>
   <passenger-count
     [items]="passengers">
   </passenger-count>
+
+  <div *ngFor="let passenger of passengers">
+    {{passenger.fullName}}
+  </div>
+
   <passenger-detail
     *ngFor="let passenger of passengers"
     [detail]="passenger"
@@ -56,7 +60,7 @@ export class PassengerDashboardComponent implements OnInit {
     this.passengers = this.passengers.map((passenger: Passenger) => {
       if (passenger.id === object.id) {
         // return object;
-        passenger = Object.assign({}, passenger, event);
+        passenger = Object.assign({}, passenger, object);
       }
       return passenger;
     });

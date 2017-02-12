@@ -1,7 +1,7 @@
 /**
  * Created by jmlegrand on 15/01/17.
  */
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnChanges, OnInit, SimpleChanges} from "@angular/core";
 import {Passenger} from "../model/passenger.interface";
 
 
@@ -42,7 +42,8 @@ import {Passenger} from "../model/passenger.interface";
 })
 
 
-export class PassengerDetailComponent {
+export class PassengerDetailComponent implements OnInit, OnChanges {
+
   @Input()
   detail: Passenger;
 
@@ -56,8 +57,21 @@ export class PassengerDetailComponent {
   editingMode: boolean = false;
 
   constructor() {
-    console.log("PassengerDetailComponent - constructor()")
+    console.log("PassengerDetailComponent - constructor()");
   }
+
+  ngOnChanges(changes) {
+    console.log("PassengerDetailComponent - ngOnChanges()");
+    console.log("changes detected", changes);
+    if (changes.detail) {
+      this.detail = Object.assign({}, changes.detail.currentValue);
+    }
+  }
+
+  ngOnInit() {
+    console.log("PassengerDetailComponent - ngOnInit()");
+  }
+
 
   onNameChange(name: string) {
     console.log("name passed", name);
@@ -65,13 +79,13 @@ export class PassengerDetailComponent {
   }
 
   onButtonClick() {
-    if(this.editingMode) {
+    if (this.editingMode) {
       this.edit.emit(this.detail);
     }
     this.editingMode = !this.editingMode;
   }
 
-  onRemove(){
+  onRemove() {
     this.remove.emit(this.detail);
   }
 }
