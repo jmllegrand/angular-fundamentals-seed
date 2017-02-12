@@ -18,4 +18,13 @@ export const passengers: Passenger[] = [{
   checkedIn: true,
   checkInDate: new Date(2017, 0, 13),
   children: [{name: 'Chloe', age: 14}, {name: 'Nanon', age: 12}]
-}];
+},
+
+  {
+    id: 4,
+    fullName: 'Fabrice',
+    checkedIn: true,
+    checkInDate: new Date(2018, 0, 13),
+    children: [{name: 'Nicolas', age: 5}, {name: 'Sybille', age: 12}]
+  }
+];
