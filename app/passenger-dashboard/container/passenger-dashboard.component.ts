@@ -1,10 +1,9 @@
 /**
  * Created by jmlegrand on 15/01/17.
  */
-
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {Passenger} from "../model/passenger.interface";
-import {passengers} from './passengers.data';
+import {PassengerDashboardService} from "../passenger-dashboard.service";
 
 @Component({
   selector: 'passenger-dashboard',
@@ -35,7 +34,7 @@ export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
 
 
-  constructor() {
+  constructor(private service: PassengerDashboardService) {
     console.log("PassengerDashboardComponent - constructor()")
   }
 
@@ -45,7 +44,7 @@ export class PassengerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("PassengerDashboardComponent - ngOnInit()");
-    this.passengers = passengers;
+    this.passengers = this.service.getPassengers();
   }
 
   handleRemove(object: Passenger) {
