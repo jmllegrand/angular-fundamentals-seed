@@ -23,6 +23,9 @@ import {Component} from '@angular/core';
   <twoways-databinding></twoways-databinding>
   <template-ref></template-ref>
   <conditional></conditional>
+  <collection></collection>
+   <collection-styled></collection-styled>
+
 </div>
 
   `

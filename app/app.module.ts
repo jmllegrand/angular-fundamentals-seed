@@ -10,6 +10,7 @@ import {TwowaysDatabindingComponent} from "./twoways-databinding.component";
 import {TemplateRefComponent} from "./template-ref.component";
 import {ConditionalComponent} from "./conditional.component";
 import {CollectionComponent} from "./collection.component";
+import {CollectionStyledComponent} from "./collection-styled.component";
 
 // use the NgModule decorator to create the application root module called AppModule
 // this module is referenced in the main.ts to bootstrap the application
@@ -25,6 +26,7 @@ import {CollectionComponent} from "./collection.component";
     TemplateRefComponent,
     ConditionalComponent,
     CollectionComponent,
+    CollectionStyledComponent
   ],
   // 'imports' to import the other modules
   // FormsModule required to use 2 ways databindings
