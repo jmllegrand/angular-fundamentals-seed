@@ -6,8 +6,10 @@ import {FormsModule} from "@angular/forms";
 import {InterpolationComponent} from "./interpolation.component";
 import {PropertyBindingComponent} from "./property-binding.component";
 import {EventBindingComponent} from "./event-binding.component";
-import {TwowaysDatabindingComponent} from "./twoways-databinding";
+import {TwowaysDatabindingComponent} from "./twoways-databinding.component";
 import {TemplateRefComponent} from "./template-ref.component";
+import {ConditionalComponent} from "./conditional.component";
+import {CollectionComponent} from "./collection.component";
 
 // use the NgModule decorator to create the application root module called AppModule
 // this module is referenced in the main.ts to bootstrap the application
@@ -20,7 +22,9 @@ import {TemplateRefComponent} from "./template-ref.component";
     PropertyBindingComponent,
     EventBindingComponent,
     TwowaysDatabindingComponent,
-    TemplateRefComponent
+    TemplateRefComponent,
+    ConditionalComponent,
+    CollectionComponent,
   ],
   // 'imports' to import the other modules
   // FormsModule required to use 2 ways databindings
