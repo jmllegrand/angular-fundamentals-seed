@@ -14,7 +14,6 @@ import {Component} from '@angular/core';
 // usage of backtick (es6 features)
 @Component({
   selector: 'app-root',
-  styleUrls: ['app.component.scss'],
   // use inline template
   template: `
 <div class="app">  
@@ -23,6 +22,7 @@ import {Component} from '@angular/core';
   <event-binding></event-binding>
   <twoways-databinding></twoways-databinding>
   <template-ref></template-ref>
+  <conditional></conditional>
 </div>
 
   `
