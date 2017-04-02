@@ -34,7 +34,7 @@ import {Passenger} from "../model/passenger.interface";
     Children : {{detail.children?.length || 0}}
   </div>
   <button (click)="onButtonClick()">{{editingMode ? 'Done' : 'Edit'}}</button>
-  <button (click)="onRemove(detail.id)">Remove</button>
+  <button (click)="onRemove(detail.id)" [ngClass]="{'disabled': editingMode}">Remove</button>
 
 </div>
 `,
@@ -60,6 +60,7 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
     console.log("PassengerDetailComponent - constructor()");
   }
 
+  // ngOnChanges get called before ngOnInit
   ngOnChanges(changes) {
     console.log("PassengerDetailComponent - ngOnChanges()");
     console.log("changes detected", changes);
@@ -73,6 +74,7 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
   }
 
 
+  // we are changing the local state of detail.fullname => the local state is now persisted
   onNameChange(name: string) {
     console.log("name passed", name);
     this.detail.fullName = name;
