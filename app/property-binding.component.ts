@@ -6,35 +6,37 @@ import {Component} from "@angular/core";
 @Component({
   selector: 'property-binding',
   template: `
-  
-  <h3>Property binding</h3>
-  
+
+    <h3>2- Property binding</h3>
   <span>{{title}}</span> is equivalent to <span [innerHTML]="title"></span> <br>
-  
   <img [src]="logo"> is equivalent to <img src="{{logo}}"> <br>
-  
-  <input type="text" [value]="name">
-  <span>{{name}}</span> <br>
-  
-  <!-- Instead of binding to the value property, we use ngModel -->
-  <input type="text" [ngModel]="firstName">
-  <span>{{firstName}}</span>
+    <div>
+      <span>Using [value] as a property binding: </span>
+      <input type="text" [value]="name">
+      <span>value (NOT updated): {{name}}</span> <br>
+    </div>
+    <div>
+      <span>Using [ngModel] as a (one way) property binding: </span>
+      <input type="text" [ngModel]="firstName">
+      <span>value (NOT updated): {{firstName}}</span>
+    </div>
 `
 })
 
 
 export class PropertyBindingComponent {
 
-  // property binding: how we can pass data from a component class into a template by binding it to an element
-  // we use the [square_bracket_notation] 
-  // property binding ties with 'one way' data flow
-
+  // Property Binding ties with 'one way' data flow.
+  // The data comes down from the class, binds to the template, looks at the property (ie innerHTML) and set the property content
   title: string;
-  logo: string = 'img/apple.png';
-  name: string = 'LEGRAND';
-  firstName: string = 'JM';
+  logo: string;
+  name: string;
+  firstName: string;
 
   constructor() {
     this.title = 'This is property binding sample';
+    this.logo = 'img/apple.png';
+    this.name = 'LEGRAND';
+    this.firstName = 'JM';
   }
 }

@@ -6,10 +6,10 @@ import {Component} from "@angular/core";
 @Component({
   selector: 'template-ref',
   template: `
-<h3>Remplate ref</h3>
+    <h3>5- Template ref</h3>
 <div>
   <input type="text" #city>
-  <button (click)="handleClickCity(city.value)">Get value</button>
+  <button (click)="handleClick(city.value)">Get value</button>
 </div>
 
   `
@@ -19,7 +19,9 @@ export class TemplateRefComponent {
   constructor() {
   }
 
-  handleClickCity(value: string) {
+  // pass a value from an input using template ref
+  // template ref variable: a ref to a particular DOM node accessible anywhere in the template
+  handleClick(value: string) {
     console.log("the value passed by is ", value);
   }
 }

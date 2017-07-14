@@ -26,6 +26,7 @@ import {TemplateRefComponent} from "./template-ref.component";
   // FormsModule required to use 2 ways databindings
   imports: [
     BrowserModule,
+    // FormsModule used for the 2-ways databinding
     FormsModule
   ],
   // 'bootstrap' property is specific to the root module definition

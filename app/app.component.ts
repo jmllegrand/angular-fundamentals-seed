@@ -17,12 +17,21 @@ import {Component} from '@angular/core';
   styleUrls: ['app.component.scss'],
   // use inline template
   template: `
-<div class="app">  
+    <div class="app">
+      <!-- Using the curly brace notation -->
   <interpolation></interpolation>
+
+      <!-- Property Binding is how to pass data a component class into a template by binding to particular element -->
+      <!-- we use the [square_bracket_notation] around the property name we want to bind to -->
   <property-binding></property-binding>
-  <event-binding></event-binding>
-  <twoways-databinding></twoways-databinding>
-  <template-ref></template-ref>
+
+      <!-- Event binding -->
+      <!-- To listen to blur event, we use the (name_of_the_event) notation -->
+      <event-binding></event-binding>
+
+      <twoways-databinding></twoways-databinding>
+
+      <template-ref></template-ref>
 </div>
 
   `

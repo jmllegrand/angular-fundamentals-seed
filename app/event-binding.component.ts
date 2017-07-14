@@ -5,45 +5,57 @@ import {Component} from "@angular/core";
 
 @Component({
   selector: 'event-binding',
-  template: `<h1>Event binding</h1>
-<input
-  type="text"
-  [value]="name"
-  (blur)="blurFn($event)"
-  (input)="inputFn($event)">
-<button (click)="handleClick()">Reset value</button>
-<span> value: {{name}} is now being updated </span>
-`
+  template: `<h3>3- Event binding</h3>
+  <!--   Reminder: the blur event is fired when an element has lost focus -->
+  <span>Using (blur) event </span>
+  <input
+    type="text"
+    [value]="name"
+    (blur)="handleBlur($event)">
+  <span> value(updated): {{name}} </span>
+  <br>
+
+  <span>Using (input) event </span>
+  <input
+    type="text"
+    [value]="firstname"
+    (input)="handleInput($event)">
+  <span> value(updated): {{firstname}} </span>
+
+  <button (click)="handleClick()">Reset value</button>
+  `
 })
 
 
 
-// event binding
-// to listen to blur event, we use the (name_of_the_event) notation
+
 export class EventBindingComponent {
 
-  name: string = 'LEGRAND';
+  name: string;
+  firstname: string;
 
   constructor() {
+    this.name = 'LEGRAND';
+    this.firstname = 'Apolline';
   }
 
-  // The blur event is fired when an element has lost focus.
-  blurFn(event: any) {
+  handleBlur(event: any) {
     console.log("event fired", event);
     this.name = event.target.value;
   }
 
-  // The  input event is fired synchronously when the value is changed.
+  // The input event is fired synchronously when the value is changed.
   // as the user types, the interpolated value will get updated
-  // impression of a 2 way databindings
-  inputFn(event: any) {
+  // impression of a 2 ways databinding
+  handleInput(event: any) {
     console.log("event fired", event);
-    this.name = event.target.value;
+    this.firstname = event.target.value;
   }
 
   handleClick() {
     console.log("click event fired");
     this.name = 'LEGRAND';
+    this.firstname = 'Apolline'
   }
 
 }

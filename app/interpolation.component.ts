@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
 @Component({
   selector: 'interpolation',
   template: `
-    <h3>Interpolation expression</h3>
+    <h3>1- Interpolation expression</h3>
     {{subtitle + '!' }}
     <div>
       {{numberOne + numberTwo}}

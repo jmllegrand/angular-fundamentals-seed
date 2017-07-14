@@ -7,25 +7,27 @@ import {Component} from "@angular/core";
   selector: 'twoways-databinding',
   template: `
 
-<h3>Two ways databinding</h3>
+    <h3>4- Two ways databinding</h3>
 
-<!-- demonstrate 2 ways databinding -->
+    <!-- demonstrate 2 ways databinding: technically a one way databinding which listen to a change via an event -->
 <div>
+  <span>Using [ngModel] property binding combined with (ngModelChange) event </span>
   <input
     type="text"
     [ngModel]="name"
     (ngModelChange)="handleChange($event)">
-  <button (click)="handleClick()">Reset value</button>
-  <span> value: {{name}} is now being updated </span>
+  <button (click)="handleClick('name')">Reset value</button>
+  <span> value (updated): {{name}}</span>
 </div>
 
 <!-- demonstrate 2 ways databinding : compact version-->
 <div>
+  <span>Using [ngModel] property binding combined with (ngModel) event </span>
   <input
     type="text"
     [(ngModel)]="firstName">
-  <button (click)="handleClick()">Reset value</button>
-  <span> value: {{firstName}} is now being updated </span>
+  <button (click)="handleClick('firstName')">Reset value</button>
+  <span> value (updated): {{firstName}}</span>
 
 </div>
 `
@@ -38,7 +40,10 @@ export class TwowaysDatabindingComponent {
   firstName : string = 'JM';
 
   constructor() {
+    this.name = 'LEGRAND';
+    this.firstName = 'JM';
   }
+
 
   // The  input event is fired synchronously when the value is changed.
   handleChange(value: string) {
@@ -46,9 +51,9 @@ export class TwowaysDatabindingComponent {
     this.name = value;
   }
 
-  handleClick() {
+  handleClick(context: string) {
     console.log("click event fired");
-    this.name = 'LEGRAND';
+    (context === "name") ? this.name = 'LEGRAND' : this.firstName = "JM";
   }
 
 }
