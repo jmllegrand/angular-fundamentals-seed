@@ -16,16 +16,14 @@ import {Component} from '@angular/core';
   selector: 'app-root',
   // use inline template
   template: `
-<div class="app">  
-  <interpolation></interpolation>
-  <property-binding></property-binding>
-  <event-binding></event-binding>
-  <twoways-databinding></twoways-databinding>
-  <template-ref></template-ref>
-  <conditional></conditional>
-  <collection></collection>
-   <collection-styled></collection-styled>
+    <div class="app">
+      <collections></collections>
+      <collections-styled></collections-styled>
+      <collections-filtered></collections-filtered>
 
+      <!-- Using the safe navigator operator, safety check the object property before they are parsed -->
+      <!-- another use case: during the asynchronous calls -->
+      <collections-safe-navigation></collections-safe-navigation>
 </div>
 
   `
