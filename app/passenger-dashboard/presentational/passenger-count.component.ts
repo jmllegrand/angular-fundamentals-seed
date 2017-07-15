@@ -10,20 +10,27 @@ import {Passenger} from "../model/passenger.interface";
   template: `
   <div>
     <h3>Airline passengers! </h3>
-    <span>Total checked in: </span> <span>{{checkedInCount()}}</span> / <span>{{items.length}}</span>
+    <span>Total checked in: </span> <span>{{checkInCounter}}</span> / <span>{{items.length}}</span>
   </div>
   `
 })
 
 export class PassengerCountComponent {
-  @Input()
-  items: Passenger[];
+  @Input() items: Array<Passenger>;
+
+  checkInCounter: number;
 
   constructor() {
-    console.log("PassengerCountComponent - constructor()")
+    console.log("PassengerCountComponent - constructor()");
+  }
+
+  ngOnInit() {
+    this.checkInCounter = this.checkedInCount();
   }
 
   checkedInCount(): number {
+    console.log("PassengerCountComponent - checkedInCount()");
+    // if there are no items, move on ...
     if (!this.items) return;
     return (this.items.filter((passenger: Passenger) => passenger.checkedIn)).length;
   }
