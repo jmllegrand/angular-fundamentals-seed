@@ -44,6 +44,7 @@ export class PassengerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("PassengerDashboardComponent - ngOnInit()");
+    // synchronous call
     this.passengers = this.service.getPassengers();
   }
 

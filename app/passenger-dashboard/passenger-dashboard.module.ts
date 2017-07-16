@@ -25,6 +25,7 @@ import {HttpModule} from "@angular/http";
   ],
   imports: [
     CommonModule,
+    // the following module contains the dependencies needed for http requests
     HttpModule
   ],
   // only PassengerDashboardComponent is declared (as the component is referenced in the root module)

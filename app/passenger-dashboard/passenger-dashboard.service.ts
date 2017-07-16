@@ -5,14 +5,14 @@ import {Injectable} from "@angular/core";
  * Created by jmlegrand on 12/02/17.
  */
 
-
+// when you do rely on others services (like http), you need to use the @Injectable notation
 @Injectable()
 export class PassengerDashboardService {
   constructor(private http: Http) {
     console.log("http", this.http);
   }
 
-  getPassengers(): Passenger[] {
+  getPassengers(): Array<Passenger> {
     return [{
       id: 1,
       fullName: 'Stephen',
@@ -31,15 +31,13 @@ export class PassengerDashboardService {
       checkedIn: true,
       checkInDate: new Date(2017, 0, 13),
       children: [{name: 'Chloe', age: 14}, {name: 'Nanon', age: 12}]
-    },
-
-      {
-        id: 4,
-        fullName: 'Fabrice',
-        checkedIn: true,
-        checkInDate: new Date(2018, 0, 13),
-        children: [{name: 'Nicolas', age: 5}, {name: 'Sybille', age: 12}]
-      }
+    }, {
+      id: 4,
+      fullName: 'Fabrice',
+      checkedIn: true,
+      checkInDate: new Date(2018, 0, 13),
+      children: [{name: 'Nicolas', age: 5}, {name: 'Sybille', age: 12}]
+    }
     ];
   };
 
