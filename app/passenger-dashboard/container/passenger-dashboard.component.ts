@@ -14,18 +14,23 @@ import {passengers} from './passengers.data';
     [items]="passengers">
   </passenger-count>
 
-    <!--div *ngFor="let passenger of passengers">
+    <div *ngFor="let passenger of passengers">
       {{passenger.fullName}}
-    </div-->
+    </div>
 
-  <!-- you can view the component as an api: you can pass info into it, you can mutate the data.
-  once done, you can sent the data back to the component chain -->
-    <!--passenger-detail
+    <!-- you can view the component as an api: 
+        - you can pass info into it via input 
+        - you can mutate the data 
+        - you can notify changes to the parent via output
+    once done, you can sent the data back to the component chain -->
+
+    <!-- when the local component fires the remove event, we are going to have a function callback-->
+    <passenger-detail
       *ngFor="let passenger of passengers"
       [detail]="passenger"
       (edit)="handleEdit($event)"
       (remove)="handleRemove($event)">
-    </passenger-detail-->
+    </passenger-detail>
 </div>
 
 `

@@ -10,7 +10,7 @@ import {Passenger} from "../model/passenger.interface";
   template: `
   <div>
     <h3>Airline passengers! </h3>
-    <span>Total checked in: </span> <span>{{checkInCounter}}</span> / <span>{{items.length}}</span>
+    <span>Total checked in: </span> <span>{{checkedInCount()}} / {{items.length}}</span>
   </div>
   `
 })
@@ -22,10 +22,6 @@ export class PassengerCountComponent {
 
   constructor() {
     console.log("PassengerCountComponent - constructor()");
-  }
-
-  ngOnInit() {
-    this.checkInCounter = this.checkedInCount();
   }
 
   checkedInCount(): number {
